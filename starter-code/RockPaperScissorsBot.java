@@ -22,19 +22,27 @@ public class RockPaperScissorsBot {
         System.out.println("================================");
 
         while (true) {
+            // Choose from completed history before reading this round's choice.
+            int predictedMove = findMostFrequentMove(counts, roundsPlayed);
+            int computerMove;
+            if (predictedMove == -1) {
+                computerMove = random.nextInt(3);
+            } else {
+                computerMove = getCounterMove(predictedMove);
+            }
+
             int playerMove = getPlayerMove(scanner);
             if (playerMove == -1) {
                 break;
             }
 
-            // Predict from completed rounds only.
-            int predictedMove = findMostFrequentMove(counts, roundsPlayed);
-            int computerMove;
             if (predictedMove == -1) {
-                computerMove = random.nextInt(3);
-                System.out.println("\nI'm still learning your habits. Let's see what happens!");
+                if (roundsPlayed < MIN_HISTORY) {
+                    System.out.println("\nFewer than five rounds played. I chose randomly.");
+                } else {
+                    System.out.println("\nNo unique prediction available. I chose randomly.");
+                }
             } else {
-                computerMove = getCounterMove(predictedMove);
                 System.out.println("\nI think you're going to choose " + MOVES[predictedMove] + "...");
             }
 
@@ -87,7 +95,7 @@ public class RockPaperScissorsBot {
         }
     }
 
-    // Return the only leading move, or -1 when there is no safe prediction.
+    // Return the only leading move, or -1 when no unique prediction is available.
     static int findMostFrequentMove(int[] counts, int roundsPlayed) {
         // TODO 2: If fewer than five rounds are complete, return -1.
         // Otherwise find the largest count. Return its index if it is unique,

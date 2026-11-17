@@ -10,13 +10,15 @@ Expected total time: up to two hours. Suggested schedule: 10 minutes setup, 15 m
 
 ## What the starter already provides
 
-`main` runs the game, calls the predictor before updating history, chooses randomly when prediction returns `-1`, tracks scores, and prints counts. `getPlayerMove` validates the menu input. `getCounterMove` and `determineWinner` handle game rules. Only the count update and unique maximum method are missing. The starter compiles and plays as a random bot before students edit it, but its displayed counts stay zero.
+`main` runs the game, chooses a computer move from completed history **before** reading the player's current choice, tracks scores, and prints counts. It explains whether a random move came from insufficient history or from having no unique prediction. `getPlayerMove` validates the menu input. `getCounterMove` and `determineWinner` handle game rules. Only the count update and unique maximum method are missing. The starter compiles and plays as a random bot before students edit it, but its displayed counts stay zero.
 
 ## Expected TODO solutions
 
 TODO 1 is `counts[playerMove]++;` after the winner is calculated and before statistics display. There should be one increment per valid round.
 
 For TODO 2, first return `-1` when `roundsPlayed < MIN_HISTORY`. Set `best = 0` and `tied = false`. Scan indices 1 and 2. A strictly larger count updates `best` and clears `tied`. An equal count sets `tied` to true. At the end, return `-1` if tied, otherwise `best`. See `solution/RockPaperScissorsBot.java` for the complete code. The method does not call `Random`; `main` handles the fallback.
+
+Students can run `StudentCheck.java` from `starter-code` after TODO 2. Its failure message identifies the relevant threshold, leader, or tie case. The one-Rock checkpoint in the README checks TODO 1 separately.
 
 ## Hints in increasing detail
 

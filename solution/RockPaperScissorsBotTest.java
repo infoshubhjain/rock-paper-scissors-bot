@@ -7,9 +7,10 @@ public class RockPaperScissorsBotTest {
         check(new int[]{2, 2, 2}, 6, -1);
         check(new int[]{0, 5, 0}, 5, 1);
         check(new int[]{0, 0, 5}, 5, 2);
-        for (int move = 0; move < 3; move++) {
-            if (RockPaperScissorsBot.getCounterMove(move) != (move + 1) % 3) {
-                throw new AssertionError("Wrong counter for " + move);
+        int[] expectedCounters = {1, 2, 0};
+        for (int move = 0; move < expectedCounters.length; move++) {
+            if (RockPaperScissorsBot.getCounterMove(move) != expectedCounters[move]) {
+                throw new AssertionError("Wrong counter for move " + move);
             }
         }
         System.out.println("All bot checks passed.");

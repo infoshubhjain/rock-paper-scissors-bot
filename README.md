@@ -24,7 +24,7 @@ Choose your move:
 4. Quit
 Your choice: 1
 
-I'm still learning your habits. Let's see what happens!
+Fewer than five rounds played. I chose randomly.
 
 You chose: Rock
 Computer chose: Scissors
@@ -42,7 +42,7 @@ Computer: 0
 Ties: 0
 ```
 
-After five previous Rocks, the next round begins with `I think you're going to choose Rock...` and the computer plays Paper. The current choice is added to the statistics only after the round.
+After five previous Rocks, the next round says `I think you're going to choose Rock...` and the computer plays Paper. With enough history but tied highest counts, it reports that no unique prediction is available and chooses randomly. The current choice is added to the statistics only after the round.
 
 ## What you will practice
 
@@ -70,7 +70,7 @@ java RockPaperScissorsBot
 
 Before either TODO is complete, the starter still runs, but the counts stay at zero and every computer move is random. That is expected. The example above shows the **finished** program.
 
-In VS Code, choose **File > Open Folder**, select this repository, and open `starter-code/RockPaperScissorsBot.java` in the Explorer. Choose **Terminal > New Terminal**, then enter the three commands above, one line at a time. If `java` or `javac` is not found there, follow the JDK check above. In IntelliJ IDEA, open the repository folder and run the `main` method in the starter file. If the IDE offers two classes with the same name, choose the one under `starter-code`. No library or build tool is needed.
+In VS Code, choose **File > Open Folder** and select the `starter-code` folder itself. Open `RockPaperScissorsBot.java` in the Explorer, then choose **Terminal > New Terminal**. That terminal is already in `starter-code`, so run only `javac RockPaperScissorsBot.java` and `java RockPaperScissorsBot` from the block above. Use **File > Open File** to read the repository's `README.md` if you want it open beside the code. Opening only `starter-code` keeps the separate solution class out of your Run menu. If `java` or `javac` is not found, follow the JDK check above. In IntelliJ IDEA, open `starter-code` as the project and run its `main` method. No library or build tool is needed.
 
 ## Understand the game first
 
@@ -103,24 +103,29 @@ Count:   3  1  1
 
 Five rounds are complete. The largest count is 3, and only Rock has it. The bot predicts Rock, so it plays Paper. Five rounds is a project design choice, not a guarantee that the guess is good. With fewer than five previous rounds, it plays randomly. It also plays randomly if all three counts tie or if two share the highest count, such as `[3, 3, 0]`. A lower tie does not matter: `[3, 1, 1]` still predicts Rock.
 
-The bot must decide before adding the current move to `counts`. Otherwise it would be looking at the answer to the round it is trying to predict.
+The bot decides before it even reads the current choice. It adds that choice to `counts` only after the round. This prevents it from looking at the answer to the round it is trying to predict.
 
 ## Meet the starter code
 
-`main(String[] args)` starts the game, keeps the array and scores, and calls the other methods once per round. It returns nothing. `getPlayerMove(Scanner scanner)` reads a menu choice and returns a move index or `-1` for Quit. `findMostFrequentMove(int[] counts, int roundsPlayed)` reads the completed history and returns a move index or `-1` for no unique prediction. `getCounterMove(int predictedMove)` returns the move that beats the prediction. `determineWinner(int playerMove, int computerMove)` returns 0 for tie, 1 for player win, or 2 for computer win. `displayStatistics(int[] counts)` prints the three counts and returns nothing. The methods are called in that order as needed, except statistics are shown at the end of each round.
+`main(String[] args)` starts the game, keeps the array and scores, and calls the other methods once per round. It returns nothing. `findMostFrequentMove(int[] counts, int roundsPlayed)` reads completed history and returns a move index or `-1` for no unique prediction. `getCounterMove(int predictedMove)` returns the move that beats the prediction. `getPlayerMove(Scanner scanner)` then reads the current menu choice and returns its index or `-1` for Quit. `determineWinner(int playerMove, int computerMove)` returns 0 for tie, 1 for player win, or 2 for computer win. `displayStatistics(int[] counts)` prints the three counts and returns nothing.
 
 ```text
-Start -> Get player move -> Check previous history
-                              | no prediction -> random move
-                              | prediction    -> counter move
-       -> Determine winner -> Update score and counts
-       -> Display statistics -> Next round
+Start -> Check previous history
+           | no prediction -> random move
+           | prediction    -> counter move
+      -> Get player move (or Quit)
+      -> Determine winner -> Update score and counts
+      -> Display statistics -> Next round
 ```
 
 ## Your two tasks
 
 1. **TODO 1: Count the player's move.** Find the comment just after the winner is reported. Increment the array entry selected by `playerMove` exactly once. This must happen before `displayStatistics`, but after the computer has chosen. If the move index were 2, which array entry would change?
 2. **TODO 2: Find the most frequent move.** Replace the placeholder `return -1` in `findMostFrequentMove`. The method should return an index only when at least five rounds are complete and one count is strictly greater than both others. Return `-1` otherwise. `main` already converts `-1` into a random move; do not choose a random move inside this method.
+
+**Checkpoint after TODO 1:** Compile and play one Rock. The statistics should say `Rock: 1`. If they still say zero, check the array index and where you placed the increment. The bot will still choose randomly until TODO 2 is complete.
+
+**Checkpoint after TODO 2:** Compile again. Play five Rocks, then one more. On round six, the bot should predict Rock and choose Paper. It should not predict during the first five rounds.
 
 Pseudocode for TODO 2:
 
@@ -139,6 +144,15 @@ Hint: initialize the best index to 0, then inspect indices 1 and 2. A new larger
 ## Test your work
 
 Compile after each TODO. Use the menu to play these sequences. For random rounds, check that the displayed computer move is valid rather than expecting a specific move.
+
+After TODO 2, run the small self-check from the `starter-code` terminal:
+
+```bash
+javac RockPaperScissorsBot.java StudentCheck.java
+java StudentCheck
+```
+
+It prints `All prediction checks passed.` when the threshold, three possible leaders, and tied-count cases work. If a check fails, its message names the case to revisit. This checks your **own starter file**, not the supplied solution. It does not check TODO 1, so use the one-Rock checkpoint for that.
 
 | Input or previous completed rounds | What to check |
 | --- | --- |

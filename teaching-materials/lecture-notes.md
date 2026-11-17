@@ -14,7 +14,7 @@ A frequency is simply the number of times an event was observed. The largest cou
 
 ## 6 to 10 minutes: Decide before seeing the current move
 
-After the five moves above, the bot guesses Rock and plays Paper. Walk through the order: read player choice, inspect **previous** counts, pick computer move, decide winner, then add the player's choice. Ask: "What goes wrong if we add the current move before guessing?" The bot would use information from the same round it claims to predict.
+After the five moves above, the bot guesses Rock and plays Paper. Walk through the order: inspect **previous** counts, pick computer move, read the player's current choice, decide the winner, then add the player's choice. Ask: "What goes wrong if we add the current move before guessing?" The bot would use information from the same round it claims to predict.
 
 If fewer than five rounds are complete, or the highest counts tie, the bot picks randomly. Five is an instructional threshold, not a statistical guarantee. Ask whether `[3, 3, 0]` has a unique leader (no) and whether `[3, 1, 1]` does (yes).
 
