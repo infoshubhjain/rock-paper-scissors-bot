@@ -4,6 +4,12 @@ Name: ____________________   Date: ____________________
 
 Run your completed starter program for each experiment. Restart it between experiments so the counts begin at zero. Record what you actually see; random results can vary. The tables highlight key rounds; use the totals below them to tally **every** round with a prediction. In the "Guess right?" column, compare the bot's predicted move with your actual move. Write `N/A` when it chose randomly.
 
+Here is an example of one filled row. Round 1 starts with counts `(0, 0, 0)`. If you play Rock and the random computer move is Paper, you lose. The game then displays `Rock: 1`, which would be the **counts before round 2**. Your random computer move may differ.
+
+| Round | Counts before (R, P, S) | Bot guess | My move | Guess right? | Bot move / result |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | (0, 0, 0) | random | Rock | N/A | Paper / loss |
+
 ## 1. Predictable player
 
 Choose Rock for at least six rounds. On which round does the bot first say it predicts Rock? What move does it play then?
@@ -13,6 +19,10 @@ Choose Rock for at least six rounds. On which round does the bot first say it pr
 | 1 | | | | | |
 | 5 | | | | | |
 | 6 | | | | | |
+
+Prediction tally (write `C` for correct or `W` for wrong; skip random rounds):
+
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____
 
 Correct guesses / predicted rounds: ______ / ______
 
@@ -31,6 +41,10 @@ Play Rock six times. Then play Scissors until the bot predicts Scissors. Note an
 
 How many Scissors were needed before the bot changed its prediction? __________
 
+Prediction tally (write `C` for correct or `W` for wrong; skip random rounds):
+
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____
+
 Correct guesses / predicted rounds: ______ / ______
 
 ## 3. Pattern player
@@ -43,6 +57,10 @@ Repeat Rock, Paper, Scissors three times. At the start of which rounds are the c
 | 7 | | | | | |
 | 8 | | | | | |
 | 9 | | | | | |
+
+Prediction tally (write `C` for correct or `W` for wrong; skip random rounds):
+
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____
 
 Correct guesses / predicted rounds: ______ / ______
 

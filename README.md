@@ -10,7 +10,7 @@ Allow about two hours for reading, coding, testing, three experiments, and a sho
 
 The finished game reads a menu choice, plays a round, reports the winner, keeps score, and displays counts. Input outside 1 through 4 is rejected without adding a round.
 
-A first round may look like this. The computer's random move and the result can differ on your run.
+**After you finish both TODOs**, a first round may look like this. The computer's random move and the result can differ on your run.
 
 ```text
 ================================
@@ -68,7 +68,7 @@ java RockPaperScissorsBot
 
 `cd` changes your current directory. `javac` compiles the source into a `.class` file. `java` runs that compiled class. Edit the `.java` file and compile again after each change. To run the completed version instead, return to the repository root, enter `solution`, and use the same two commands. Compile the two directories separately because both contain a class with the same name.
 
-Before either TODO is complete, the starter still runs, but the counts stay at zero and every computer move is random. That is expected. The example above shows the **finished** program.
+Before either TODO is complete, the starter still runs, but the counts stay at zero and every computer move is random. That is expected.
 
 In VS Code, choose **File > Open Folder** and select the `starter-code` folder itself. Open `RockPaperScissorsBot.java` in the Explorer, then choose **Terminal > New Terminal**. That terminal is already in `starter-code`, so run only `javac RockPaperScissorsBot.java` and `java RockPaperScissorsBot` from the block above. Use **File > Open File** to read the repository's `README.md` if you want it open beside the code. Opening only `starter-code` keeps the separate solution class out of your Run menu. If `java` or `javac` is not found, follow the JDK check above. In IntelliJ IDEA, open `starter-code` as the project and run its `main` method. No library or build tool is needed.
 

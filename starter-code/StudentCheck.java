@@ -15,7 +15,15 @@ public class StudentCheck {
     private static void check(int[] counts, int rounds, int expected, String caseName) {
         int actual = RockPaperScissorsBot.findMostFrequentMove(counts, rounds);
         if (actual != expected) {
-            throw new AssertionError(caseName + ": expected " + expected + ", got " + actual);
+            throw new AssertionError(caseName + ": expected " + moveName(expected)
+                + ", got " + moveName(actual));
         }
+    }
+
+    private static String moveName(int move) {
+        if (move == -1) return "no prediction";
+        String[] names = {"Rock", "Paper", "Scissors"};
+        if (move < 0 || move >= names.length) return "invalid move " + move;
+        return names[move];
     }
 }

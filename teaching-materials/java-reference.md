@@ -15,3 +15,5 @@
 | Modulo | `(move + 1) % 3` | Gives the remainder after division by 3, wrapping 2 back to 0 |
 
 In Java, `==` compares integer values. `=` assigns a value. `>` means greater than. The method `findMostFrequentMove` returns `-1` as a signal that no unique prediction is available; `-1` is not an array index.
+
+For example, Scissors is move 2. The move that beats it is `(2 + 1) % 3`, which is `3 % 3 = 0`: Rock. The `%` operator gives the remainder after division, so it wraps the move numbers back to zero. Rock similarly becomes Paper because `(0 + 1) % 3 = 1`.
