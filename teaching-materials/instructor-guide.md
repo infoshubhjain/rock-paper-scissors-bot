@@ -18,7 +18,7 @@ TODO 1 is `counts[playerMove]++;` after the winner is calculated and before stat
 
 For TODO 2, first return `-1` when `roundsPlayed < MIN_HISTORY`. Set `best = 0` and `tied = false`. Scan indices 1 and 2. A strictly larger count updates `best` and clears `tied`. An equal count sets `tied` to true. At the end, return `-1` if tied, otherwise `best`. See `solution/RockPaperScissorsBot.java` for the complete code. The method does not call `Random`; `main` handles the fallback.
 
-Students can run `StudentCheck.java` from `starter-code` after TODO 2. Its failure message identifies the relevant threshold, leader, or tie case. The one-Rock checkpoint in the README checks TODO 1 separately.
+Students can run `StudentCheck.java` from `starter-code` after TODO 2. Its failure message identifies the relevant threshold, leader, or tie case. The Rock, Paper, Scissors checkpoint in the README checks TODO 1 separately, including whether invalid input leaves counts unchanged.
 
 ## Hints in increasing detail
 
@@ -36,5 +36,17 @@ Common mistakes: comparing a count to an index, treating lower-count ties as amb
 - In a Rock, Paper, Scissors cycle, counts tie after each complete cycle. The bot ignores order, so it cannot exploit the cycle as a sequence.
 
 Accuracy means the predicted move equals the player's actual move. It is different from a win, since a random move can win and a deliberate counter can lose after a strategy switch.
+
+For the optional pause-and-predict challenge, five previous Rocks make the bot choose Paper. A student who switches to Scissors on round six wins because Scissors beats Paper. The bot's rule used earlier frequencies correctly; its guess about the next move was wrong.
+
+## Reflection guidance
+
+Look for explanations in the student's own words, supported by a game observation:
+
+- **Why random at first?** Fewer than five completed rounds is below the project's chosen threshold. Five is a rule for this project, not a guarantee of accuracy.
+- **When does frequency counting fail?** A player can switch moves or follow an ordered pattern with tied overall counts. A correct example matters more than using technical terms.
+- **Why can old data hurt?** Earlier moves keep their full weight, so a new preference needs enough rounds to overtake an old lead.
+- **How could it improve?** A recent-move window or short sequence tracking is a reasonable proposal. Students should say what new behavior it could catch.
+- **Does it understand the player?** No. It counts past choices and applies a rule; it cannot know the next choice with certainty.
 
 Optional extensions: count only the last five moves, compare prediction accuracy against a random bot, or look for short repeated sequences. Keep these outside the required two-hour work.

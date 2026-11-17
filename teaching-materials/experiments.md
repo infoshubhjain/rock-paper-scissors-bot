@@ -71,3 +71,7 @@ Answer: _________________________________________________________________
 A prediction is **accurate** when the guessed move matches what you actually play, even if the computer does not win. Count only rounds where the bot showed a prediction. Were the guesses more accurate in experiment 1 or 3? Why? ___________________________________________
 
 Optional thought experiment: If the bot used only the last five moves, what would it predict after six Rocks followed by five Scissors? Original algorithm: __________  Five-move window: __________. Which reacts faster, and what information does it discard? ______________________________
+
+## Optional: pause and predict
+
+Start a fresh game and play Rock five times. Before round six, predict the bot's move: __________. Choose a move that beats it: __________. What happened, and why can the bot lose even after learning your most common move? ______________________________

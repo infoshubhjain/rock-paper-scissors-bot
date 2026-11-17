@@ -72,6 +72,14 @@ Before either TODO is complete, the starter still runs, but the counts stay at z
 
 In VS Code, choose **File > Open Folder** and select the `starter-code` folder itself. Open `RockPaperScissorsBot.java` in the Explorer, then choose **Terminal > New Terminal**. That terminal is already in `starter-code`, so run only `javac RockPaperScissorsBot.java` and `java RockPaperScissorsBot` from the block above. Use **File > Open File** to read the repository's `README.md` if you want it open beside the code. Opening only `starter-code` keeps the separate solution class out of your Run menu. If `java` or `javac` is not found, follow the JDK check above. In IntelliJ IDEA, open `starter-code` as the project and run its `main` method. No library or build tool is needed.
 
+If a command does not work, try these checks:
+
+| What you see | What to do |
+| --- | --- |
+| `javac: command not found` or `java: command not found` | Install a JDK, reopen the terminal, and run the version checks above. |
+| `Could not find or load main class RockPaperScissorsBot` | In the terminal, enter the `starter-code` folder and run `javac RockPaperScissorsBot.java` again before `java RockPaperScissorsBot`. |
+| Your edits do not change the game | Save the `.java` file, run `javac RockPaperScissorsBot.java` again, then restart with `java RockPaperScissorsBot`. |
+
 ## Understand the game first
 
 | Move | Beats |
@@ -123,7 +131,7 @@ Start -> Check previous history
 1. **TODO 1: Count the player's move.** Find the comment just after the winner is reported. Increment the array entry selected by `playerMove` exactly once. This must happen before `displayStatistics`, but after the computer has chosen. If the move index were 2, which array entry would change?
 2. **TODO 2: Find the most frequent move.** Replace the placeholder `return -1` in `findMostFrequentMove`. The method should return an index only when at least five rounds are complete and one count is strictly greater than both others. Return `-1` otherwise. `main` already converts `-1` into a random move; do not choose a random move inside this method.
 
-**Checkpoint after TODO 1:** Compile and play one Rock. The statistics should say `Rock: 1`. If they still say zero, check the array index and where you placed the increment. The bot will still choose randomly until TODO 2 is complete.
+**Checkpoint after TODO 1:** Compile and play Rock, Paper, then Scissors once each. The statistics should end at `Rock: 1`, `Paper: 1`, `Scissors: 1`. Try an invalid menu choice too; it should not change any count. If a count is wrong, check the array index and where you placed the increment. The bot will still choose randomly until TODO 2 is complete.
 
 **Checkpoint after TODO 2:** Compile again. Play five Rocks, then one more. On round six, the bot should predict Rock and choose Paper. It should not predict during the first five rounds.
 
@@ -173,6 +181,8 @@ Use the [experiment worksheet](teaching-materials/experiments.md) to record resu
 1. **Predictable player:** Play Rock at least six times. When does the bot first choose Paper on purpose? Could you beat it by changing moves?
 2. **Strategy switch:** Play Rock six times, then Scissors until the prediction changes. Count how many Scissors it takes. What does the old Rock history do?
 3. **Pattern player:** Repeat Rock, Paper, Scissors in order for at least nine rounds. At which points do counts tie? Can a frequency-only bot recognize the sequence?
+
+**Pause and predict (optional):** Start a fresh game and play Rock five times. Before entering the sixth move, write down what the bot will play. Then choose a move that beats it. Did you win? Explain why a bot that learned your favorite move can still lose.
 
 For an extra game challenge, try to finish ten rounds with more wins than the bot. Write down the move you used to break its prediction. This is a way to explore the algorithm, not another required feature to code.
 
