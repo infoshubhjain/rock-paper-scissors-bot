@@ -15,7 +15,7 @@ Counts:            3       1        1
 There are five completed rounds. Scan the array to find the highest count:
 
 | Step | Count seen | Best index | Tied? | Reason |
-|---|---:|---:|---|---|
+| --- | ---: | ---: | --- | --- |
 | Start at index 0 | 3 | 0 | No | First value is the best so far |
 | Inspect index 1 | 1 | 0 | No | 1 is below 3 |
 | Inspect index 2 | 1 | 0 | No | 1 is below 3 |

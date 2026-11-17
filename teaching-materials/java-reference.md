@@ -1,7 +1,7 @@
 # Java pocket reference for this project
 
 | Idea | Small example | Meaning here |
-|---|---|---|
+| --- | --- | --- |
 | Integer variable | `int rounds = 0;` | Holds a whole-number round count |
 | Array | `int[] counts = new int[3];` | Creates three integer counts, initially zero |
 | Array index | `counts[0]` | Reads the Rock count; indices start at zero |

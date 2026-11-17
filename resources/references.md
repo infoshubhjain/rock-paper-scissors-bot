@@ -3,7 +3,7 @@
 The first four are the most useful during the required project. The others are optional if you want to understand the wider ideas. The descriptions below refer to the linked pages, not to material students must memorize.
 
 | Resource | Type | What it teaches and why it fits | Use |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | [Creating arrays in your programs](https://dev.java/learn/language/constructs/basics/arrays/) | Official Java lesson | Array creation and indexing; useful for the three move counts | Recommended |
 | [Control flow statements](https://dev.java/learn/language/constructs/basics/controlling-flow/) | Official Java lesson | `if` and loops used to find the highest count | Recommended |
 | [Random, Java 17](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html) | Official API reference | `nextInt(3)` and its range; explains random fallback | Recommended |

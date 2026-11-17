@@ -47,7 +47,7 @@ After five previous Rocks, the next round begins with `I think you're going to c
 ## What you will practice
 
 | Concept | In this program |
-|---|---|
+| --- | --- |
 | Arrays | Keep three move counts in one variable |
 | Loops | Visit each count to find the largest |
 | Conditionals | Check the history threshold and tied counts |
@@ -56,7 +56,7 @@ After five previous Rocks, the next round begins with `I think you're going to c
 
 ## Set up and run
 
-Install **Java 17 or later**. In a terminal, run `java -version` and `javac -version`. Both should report version 17 or higher. If a command is missing, install a JDK and reopen the terminal. A JRE alone does not include `javac`.
+Install **Java 17 or later**. If you do not already have it, download a **JDK** for your operating system from [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=17) and run its installer. In a terminal, run `java -version` and `javac -version`. Both should report version 17 or higher. If a command is missing after installation, reopen the terminal and check that the JDK's `bin` directory is on your PATH. A JRE alone does not include `javac`.
 
 Open a terminal in this repository, then enter the starter directory:
 
@@ -68,12 +68,14 @@ java RockPaperScissorsBot
 
 `cd` changes your current directory. `javac` compiles the source into a `.class` file. `java` runs that compiled class. Edit the `.java` file and compile again after each change. To run the completed version instead, return to the repository root, enter `solution`, and use the same two commands. Compile the two directories separately because both contain a class with the same name.
 
-In VS Code, open the repository folder, edit the file under `starter-code`, then use **Terminal > New Terminal** for the commands above. In IntelliJ IDEA, open the repository folder and run the `main` method in the starter file. If the IDE offers two classes with the same name, choose the one under `starter-code`. No library or build tool is needed.
+Before either TODO is complete, the starter still runs, but the counts stay at zero and every computer move is random. That is expected. The example above shows the **finished** program.
+
+In VS Code, choose **File > Open Folder**, select this repository, and open `starter-code/RockPaperScissorsBot.java` in the Explorer. Choose **Terminal > New Terminal**, then enter the three commands above, one line at a time. If `java` or `javac` is not found there, follow the JDK check above. In IntelliJ IDEA, open the repository folder and run the `main` method in the starter file. If the IDE offers two classes with the same name, choose the one under `starter-code`. No library or build tool is needed.
 
 ## Understand the game first
 
 | Move | Beats |
-|---|---|
+| --- | --- |
 | Rock | Scissors |
 | Paper | Rock |
 | Scissors | Paper |
@@ -139,7 +141,7 @@ Hint: initialize the best index to 0, then inspect indices 1 and 2. A new larger
 Compile after each TODO. Use the menu to play these sequences. For random rounds, check that the displayed computer move is valid rather than expecting a specific move.
 
 | Input or previous completed rounds | What to check |
-|---|---|
+| --- | --- |
 | 0 to 4 valid rounds | Next move is random; no prediction message |
 | Five Rocks | Round 6 predicts Rock and plays Paper |
 | Rock, Rock, Rock, Paper, Scissors | Round 6 predicts Rock and plays Paper |
@@ -158,8 +160,10 @@ Use the [experiment worksheet](teaching-materials/experiments.md) to record resu
 2. **Strategy switch:** Play Rock six times, then Scissors until the prediction changes. Count how many Scissors it takes. What does the old Rock history do?
 3. **Pattern player:** Repeat Rock, Paper, Scissors in order for at least nine rounds. At which points do counts tie? Can a frequency-only bot recognize the sequence?
 
+For an extra game challenge, try to finish ten rounds with more wins than the bot. Write down the move you used to break its prediction. This is a way to explore the algorithm, not another required feature to code.
+
 | Strategy | When was a prediction shown? | Computer move | What happened? |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Repeated Rock | | | |
 | Rock then Scissors | | | |
 | R, P, S pattern | | | |

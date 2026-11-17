@@ -9,7 +9,7 @@ Run your completed starter program for each experiment. Restart the program betw
 Choose Rock for at least six rounds. On which round does the bot first say it predicts Rock? What move does it play then?
 
 | Round | Counts before round (R, P, S) | Bot prediction or random | Computer move | Win, loss, tie |
-|---:|---|---|---|---|
+| ---: | --- | --- | --- | --- |
 | 1 | | | | |
 | 5 | | | | |
 | 6 | | | | |
@@ -21,7 +21,7 @@ Observation: ____________________________________________________________
 Play Rock six times. Then play Scissors until the bot predicts Scissors. Note any round where the highest counts tie.
 
 | Scissors played so far | Counts before round (R, P, S) | Bot prediction or random | Result |
-|---:|---|---|---|
+| ---: | --- | --- | --- |
 | 1 | | | |
 | 6 | | | |
 | 8 | | | |
@@ -33,7 +33,7 @@ How many Scissors were needed before the bot changed its prediction? __________
 Repeat Rock, Paper, Scissors three times. At the start of which rounds are the counts tied? Does the bot recognize the order of the moves?
 
 | Round | Counts before round (R, P, S) | Bot prediction or random | Result |
-|---:|---|---|---|
+| ---: | --- | --- | --- |
 | 6 | | | |
 | 7 | | | |
 | 9 | | | |
